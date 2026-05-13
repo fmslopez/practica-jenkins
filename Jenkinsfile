@@ -9,7 +9,7 @@ pipeline {
         //Timeout de 5 minutos.
 		disableConcurrentBuilds()
         timestamps()
-        timeout(time: 5; unit:'MINUTES')
+        timeout(time: 5, unit:'MINUTES')
         
 	}
 
