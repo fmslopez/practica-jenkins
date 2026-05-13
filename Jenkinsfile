@@ -16,7 +16,7 @@ pipeline {
 			name: 'NO_COLOR',
 			defaultValue: true
 		)
-
+    }
     
 	stages{
 		stage('Audit tools'){
@@ -65,8 +65,6 @@ pipeline {
                 archiveArtifacts(artifacts: 'dist.zip', fingerprint:true)
             }
 		}
-	}
-		
 	}
     post {
         always{
