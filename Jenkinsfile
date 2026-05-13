@@ -3,14 +3,23 @@ pipeline {
 	agent any
 	
 	options {
+        //El job debe estar configurado mediante la directiva options con los siguientes elementos:
+        //Deshabilitar builds concurrentes.
+        //Mostrar marcas de tiempo.
+        //Timeout de 5 minutos.
 		disableConcurrentBuilds()
-        //me falta mostrar marcas de tiempo y timeout de 5 minutos
+        timestamps()
+        timeout(time: 5; unit:'MINUTES')
+        
 	}
 
 	parameters{
-		integer(
+        //El job debe definir las siguientes variables de entorno que heredarán todas las etapas:
+        // FORCE_COLOR: Tendrá el valor numérico 0.
+        //NO_COLOR: Tendrá el valor booleano true.
+		string(
 			name: 'FORCE_COLOR',
-			defaultValue: 0
+			defaultValue: '0'
 		)
 		booleanParam(
 			name: 'NO_COLOR',
